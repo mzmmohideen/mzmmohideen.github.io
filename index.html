@@ -3,9 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title id='Description'>In order to enter in edit mode, select a grid cell and start typing, "Click" or press the "F2" key. You 
-    can also navigate through the cells using the keyboard arrows or with the "Tab" and "Shift + Tab" key combinations. To cancel the cell editing, press the "Esc" key. To save
-    the changes press the "Enter" key or select another Grid cell. Pressing the 'Space' key when a checkbox cell is selected will toggle the check state.</title>
+    <title id='Description'>This example demostrates how we can manipulate data at client side. The Grid plugin provides you callback functions when you add, remove or update a row.
+    </title>
     <link rel="stylesheet" href="http://www.jqwidgets.com/public/jqwidgets/styles/jqx.base.css" type="text/css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script type="text/javascript" src="http://www.jqwidgets.com/public/jqwidgets/jqxcore.js"></script>
@@ -24,103 +23,145 @@
     <script type="text/javascript" src="http://www.jqwidgets.com/public/jqwidgets/jqxdatetimeinput.js"></script>
     <script type="text/javascript" src="http://www.jqwidgets.com/public/jqwidgets/globalization/globalize.js"></script>
     <script type="text/javascript" src="http://www.jqwidgets.com/public/scripts/demos.js"></script>
-    //<script type="text/javascript" src="generatedata.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             // prepare the data
-            var data = generatedata(200);
+            var data = {};
+            var firstNames =
+            [
+                "Andrew", "Nancy", "Shelley", "Regina", "Yoshi", "Antoni", "Mayumi", "Ian", "Peter", "Lars", "Petra", "Martin", "Sven", "Elio", "Beate", "Cheryl", "Michael", "Guylene"
+            ];
+            var lastNames =
+            [
+                "Fuller", "Davolio", "Burke", "Murphy", "Nagase", "Saavedra", "Ohno", "Devling", "Wilson", "Peterson", "Winkler", "Bein", "Petersen", "Rossi", "Vileid", "Saylor", "Bjorn", "Nodier"
+            ];
+            var productNames =
+            [
+                "Black Tea", "Green Tea", "Caffe Espresso", "Doubleshot Espresso", "Caffe Latte", "White Chocolate Mocha", "Cramel Latte", "Caffe Americano", "Cappuccino", "Espresso Truffle", "Espresso con Panna", "Peppermint Mocha Twist"
+            ];
+            var priceValues =
+            [
+                "2.25", "1.5", "3.0", "3.3", "4.5", "3.6", "3.8", "2.5", "5.0", "1.75", "3.25", "4.0"
+            ];
+            var generaterow = function (i) {
+                var row = {};
+                var productindex = Math.floor(Math.random() * productNames.length);
+                var price = parseFloat(priceValues[productindex]);
+                var quantity = 1 + Math.round(Math.random() * 10);
+                row["firstname"] = firstNames[Math.floor(Math.random() * firstNames.length)];
+                row["lastname"] = lastNames[Math.floor(Math.random() * lastNames.length)];
+                row["productname"] = productNames[productindex];
+                row["price"] = price;
+                row["quantity"] = quantity;
+                row["total"] = price * quantity;
+                return row;
+            }
+            for (var i = 0; i < 10; i++) {
+                var row = generaterow(i);
+                data[i] = row;
+            }
             var source =
             {
                 localdata: data,
-                datatype: "array",
-                updaterow: function (rowid, rowdata, commit) {
-                    // synchronize with the server - send update command
-                    // call commit with parameter true if the synchronization with the server is successful 
-                    // and with parameter false if the synchronization failder.
-                    commit(true);
-                },
+                datatype: "local",
                 datafields:
                 [
                     { name: 'firstname', type: 'string' },
                     { name: 'lastname', type: 'string' },
                     { name: 'productname', type: 'string' },
-                    { name: 'available', type: 'bool' },
                     { name: 'quantity', type: 'number' },
                     { name: 'price', type: 'number' },
-                    { name: 'date', type: 'date' }
-                ]
+                    { name: 'total', type: 'number' }
+                ],
+                addrow: function (rowid, rowdata, position, commit) {
+                    // synchronize with the server - send insert command
+                    // call commit with parameter true if the synchronization with the server is successful 
+                    //and with parameter false if the synchronization failed.
+                    // you can pass additional argument to the commit callback which represents the new ID if it is generated from a DB.
+                    commit(true);
+                },
+                deleterow: function (rowid, commit) {
+                    // synchronize with the server - send delete command
+                    // call commit with parameter true if the synchronization with the server is successful 
+                    //and with parameter false if the synchronization failed.
+                    commit(true);
+                },
+                updaterow: function (rowid, newdata, commit) {
+                    // synchronize with the server - send update command
+                    // call commit with parameter true if the synchronization with the server is successful 
+                    // and with parameter false if the synchronization failed.
+                    commit(true);
+                }
             };
             var dataAdapter = new $.jqx.dataAdapter(source);
             // initialize jqxGrid
             $("#jqxgrid").jqxGrid(
             {
                 width: 850,
+                height: 350,
                 source: dataAdapter,
-                editable: true,
-                enabletooltips: true,
-                selectionmode: 'multiplecellsadvanced',
+                showtoolbar: true,
+                rendertoolbar: function (toolbar) {
+                    var me = this;
+                    var container = $("<div style='margin: 5px;'></div>");
+                    toolbar.append(container);
+                    container.append('<input id="addrowbutton" type="button" value="Add New Row" />');
+                    container.append('<input style="margin-left: 5px;" id="addmultiplerowsbutton" type="button" value="Add Multiple New Rows" />');
+                    container.append('<input style="margin-left: 5px;" id="deleterowbutton" type="button" value="Delete Selected Row" />');
+                    container.append('<input style="margin-left: 5px;" id="updaterowbutton" type="button" value="Update Selected Row" />');
+                    $("#addrowbutton").jqxButton();
+                    $("#addmultiplerowsbutton").jqxButton();
+                    $("#deleterowbutton").jqxButton();
+                    $("#updaterowbutton").jqxButton();
+                    // update row.
+                    $("#updaterowbutton").on('click', function () {
+                        var datarow = generaterow();
+                        var selectedrowindex = $("#jqxgrid").jqxGrid('getselectedrowindex');
+                        var rowscount = $("#jqxgrid").jqxGrid('getdatainformation').rowscount;
+                        if (selectedrowindex >= 0 && selectedrowindex < rowscount) {
+                            var id = $("#jqxgrid").jqxGrid('getrowid', selectedrowindex);
+                            var commit = $("#jqxgrid").jqxGrid('updaterow', id, datarow);
+                            $("#jqxgrid").jqxGrid('ensurerowvisible', selectedrowindex);
+                        }
+                    });
+                    // create new row.
+                    $("#addrowbutton").on('click', function () {
+                        var datarow = generaterow();
+                        var commit = $("#jqxgrid").jqxGrid('addrow', null, datarow);
+                    });
+                    // create new rows.
+                    $("#addmultiplerowsbutton").on('click', function () {
+                        $("#jqxgrid").jqxGrid('beginupdate');
+                        for (var i = 0; i < 10; i++) {
+                            var datarow = generaterow();
+                            var commit = $("#jqxgrid").jqxGrid('addrow', null, datarow);
+                        }
+                        $("#jqxgrid").jqxGrid('endupdate');
+                    });
+                    // delete row.
+                    $("#deleterowbutton").on('click', function () {
+                        var selectedrowindex = $("#jqxgrid").jqxGrid('getselectedrowindex');
+                        var rowscount = $("#jqxgrid").jqxGrid('getdatainformation').rowscount;
+                        if (selectedrowindex >= 0 && selectedrowindex < rowscount) {
+                            var id = $("#jqxgrid").jqxGrid('getrowid', selectedrowindex);
+                            var commit = $("#jqxgrid").jqxGrid('deleterow', id);
+                        }
+                    });
+                },
                 columns: [
-                  { text: 'First Name', columntype: 'textbox', datafield: 'firstname', width: 120 },
-                  { text: 'Last Name', datafield: 'lastname', columntype: 'textbox', width: 120 },
-                  { text: 'Product', columntype: 'dropdownlist', datafield: 'productname', width: 195 },
-                  { text: 'Available', datafield: 'available', columntype: 'checkbox', width: 67 },
-                  {
-                      text: 'Ship Date', datafield: 'date', columntype: 'datetimeinput', width: 110, align: 'right', cellsalign: 'right', cellsformat: 'd',
-                  validation: function (cell, value) {
-                          if (value == "")
-                             return true;
-                          var year = value.getFullYear();
-                          if (year >= 2017) {
-                              return { result: false, message: "Ship Date should be before 1/1/2017" };
-                          }
-                          return true;
-                      }
-                  },
-                  {
-                      text: 'Quantity', datafield: 'quantity', width: 70, align: 'right', cellsalign: 'right', columntype: 'numberinput',
-                      validation: function (cell, value) {
-                          if (value < 0 || value > 150) {
-                              return { result: false, message: "Quantity should be in the 0-150 interval" };
-                          }
-                          return true;
-                      },
-                      createeditor: function (row, cellvalue, editor) {
-                          editor.jqxNumberInput({ decimalDigits: 0, digits: 3 });
-                      }
-                  },
-                  { text: 'Price', datafield: 'price', align: 'right', cellsalign: 'right', cellsformat: 'c2', columntype: 'numberinput',
-                      validation: function (cell, value) {
-                          if (value < 0 || value > 15) {
-                              return { result: false, message: "Price should be in the 0-15 interval" };
-                          }
-                          return true;
-                      },
-                      createeditor: function (row, cellvalue, editor) {
-                          editor.jqxNumberInput({ digits: 3 });
-                      }
-                  }
+                  { text: 'First Name', datafield: 'firstname', width: 200 },
+                  { text: 'Last Name', datafield: 'lastname', width: 200 },
+                  { text: 'Product', datafield: 'productname', width: 180 },
+                  { text: 'Quantity', datafield: 'quantity', width: 80, cellsalign: 'right' },
+                  { text: 'Unit Price', datafield: 'price', width: 90, cellsalign: 'right', cellsformat: 'c2' },
+                  { text: 'Total', datafield: 'total',  cellsalign: 'right', cellsformat: 'c2' }
                 ]
-            });
-            // events
-            $("#jqxgrid").on('cellbeginedit', function (event) {
-                var args = event.args;
-                $("#cellbegineditevent").text("Event Type: cellbeginedit, Column: " + args.datafield + ", Row: " + (1 + args.rowindex) + ", Value: " + args.value);
-            });
-            $("#jqxgrid").on('cellendedit', function (event) {
-                var args = event.args;
-                $("#cellendeditevent").text("Event Type: cellendedit, Column: " + args.datafield + ", Row: " + (1 + args.rowindex) + ", Value: " + args.value);
-            });
+            });    
         });
     </script>
 </head>
 <body class='default'>
-    <div id='jqxWidget'>
-        <div id="jqxgrid"></div>
-        
-"font-size: 12px; font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif; margin-top: 30px;">
-            <div id="cellbegineditevent"></div>
-            <div style="margin-top: 10px;" id="cellendeditevent"></div>
-       </div>
+    <div id="jqxgrid">
     </div>
 </body>
 </html>
