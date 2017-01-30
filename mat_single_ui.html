@@ -1,0 +1,104 @@
+<html>
+<head>
+	<style type="text/css">
+        body {
+            width: 100%;
+            height: calc(100vh - 30%);
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #container {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            border: 0 solid yellow;
+        }
+
+        .app {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 0 solid black;
+        }
+
+        .app-header {
+            border: 0 solid red;
+        }
+
+        .app-content {
+            border: 0 solid green;
+            flex: 1;
+            /* added property */
+            position: relative;
+        }
+
+        .app-footer {
+            border: 0 solid blue;
+        }
+
+        /* added rule */
+        .app-content > .app {
+            height: auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        /* scrollbar and border correction */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            box-sizing: border-box;
+        }
+        nav ul a {        	
+		    color: #FF1493 !important;
+		    font-size: 20px;
+		    font-weight: bold;
+		    font-style: italic;
+        }
+        img {
+		    padding: 10px;
+		    width: 200px;
+		}
+    </style>
+	<title></title>
+	<link href="static/css/materialize.min.css" rel="stylesheet" type="text/css">
+	<script src="static/js/jquery.min.js"></script>
+	<script src="static/js/materialize.min.js"></script>
+</head>
+<body>
+<div id="container">
+	<div class="app">
+		<div class="app-header">
+			<nav>
+			    <div class="nav-wrapper" style="background-color: white !important">
+			      <a class="brand-logo right">
+			      	<img src="static/images/sunitha_header.gif" alt="Logo"/>
+			      </a>
+			      <ul id="nav-mobile" class="left hide-on-med-and-down">
+			        <li class="active"><a href="home.html">Home</a></li>
+			        <li><a href="#testimonial">Testimonial</a></li>
+			        <li><a href="#contactus">Contact US</a></li>
+			        <li><a href="#aboutus">Who We are!</a></li>
+			        <li><a href="#blog">Blog</a></li>
+			      </ul>
+			    </div>
+			 </nav>
+		</div>
+		<div class="app-content">
+			<div id="home">Home</div>
+			<div id="testimonial">testimonial</div>
+			<div id="contactus">contactus</div>
+			<div id="aboutus">aboutus</div>
+			<div id="blog">blog</div>
+		</div>		
+	</div>
+</div>
+</body>
+</html>
