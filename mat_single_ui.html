@@ -56,49 +56,101 @@
         div {
             box-sizing: border-box;
         }
-        nav ul a {        	
+        /*nav ul a {        	
 		    color: #FF1493 !important;
 		    font-size: 20px;
 		    font-weight: bold;
 		    font-style: italic;
-        }
-        img {
+        }*/
+        /*img {
 		    padding: 10px;
 		    width: 200px;
-		}
+		}*/
     </style>
 	<title></title>
 	<link href="static/css/materialize.min.css" rel="stylesheet" type="text/css">
 	<script src="static/js/jquery.min.js"></script>
 	<script src="static/js/materialize.min.js"></script>
+    <script src="static/js/app.js"></script>
 </head>
 <body>
 <div id="container">
 	<div class="app">
-		<div class="app-header">
-			<nav>
-			    <div class="nav-wrapper" style="background-color: white !important">
-			      <a class="brand-logo right">
-			      	<img src="static/images/sunitha_header.gif" alt="Logo"/>
-			      </a>
-			      <ul id="nav-mobile" class="left hide-on-med-and-down">
-			        <li class="active"><a href="home.html">Home</a></li>
-			        <li><a href="#testimonial">Testimonial</a></li>
-			        <li><a href="#contactus">Contact US</a></li>
-			        <li><a href="#aboutus">Who We are!</a></li>
-			        <li><a href="#blog">Blog</a></li>
-			      </ul>
-			    </div>
-			 </nav>
-		</div>
-		<div class="app-content">
-			<div id="home">Home</div>
-			<div id="testimonial">testimonial</div>
-			<div id="contactus">contactus</div>
-			<div id="aboutus">aboutus</div>
-			<div id="blog">blog</div>
-		</div>		
+		<nav>
+		    <div class="nav-wrapper" style="color: white !important">
+		      <a class="brand-logo right">
+		      	<img style="padding: 10px;width: 200px;" src="static/images/demo_logo.gif" alt="Logo"/>
+		      </a>
+		      <ul id="myNavbar" class="left hide-on-med-and-down">
+		        <li class="active"><a class="home"via-link via-href="#home">Home</a></li>
+                <li><a class="pricing"via-link via-href="#pricing">Tariff</a></li>
+		        <li><a class="portfolio"via-link via-href="#portfolio">Testimonial</a></li>
+		        <li><a class="contactus"via-link via-href="#contactus">Contact US</a></li>
+		        <li><a class="about"via-link via-href="#about">Who We are!</a></li>
+		        <li><a class="services"via-link via-href="#services">What we Do!</a></li>
+		      </ul>
+		    </div>
+		 </nav>
+         <div class="app-content">
+            <div id="content" via-views></div>
+        </div>
+		<!-- <div class="app-content" id="page_content">
+            mohideen		
+		</div> -->
 	</div>
 </div>
 </body>
+<script>
+    $(document).ready(function(){
+        var views = {
+            home: [{
+                    selector: "#content",
+                    templateUrl: 'pages/home.html'
+                },
+            ],
+            about: [{
+                    selector: "#content",
+                    templateUrl: 'pages/about.html'
+                },
+            ],
+            contactus: [{
+                    selector: "#content",
+                    templateUrl: 'pages/contactus.html'
+                },
+            ],
+            portfolio: [{
+                    selector: "#content",
+                    templateUrl: 'pages/portfolio.html'
+                },
+            ],        
+            pricing: [{
+                    selector: "#content",
+                    templateUrl: 'pages/pricing.html'
+                },
+            ],
+            services: [{
+                    selector: "#content",
+                    templateUrl: 'pages/services.html'
+                },
+            ],
+            defaultView: {
+                view: 'home'
+            }
+        };
+        new Via(views);
+        window.location.hash = "#home";
+        $("#myNavbar").on('click', function(event) {
+            if (this.hash !== "") {                
+                var hash = window.location.hash;
+                console.log('worl',hash);
+                $('#myNavbar').find('li').removeClass('active');
+                $("."+hash.split("#")[1]).parent().addClass('active');
+                // $("#page_content").load("pages/"+hash.split("#")[1]+".html");
+                // document.getElementById("page_content").innerHTML="<object type='text/html' data='pages/"+hash.split('#')[1]+".html'></object>";
+                window.location.hash = hash; 
+            }
+        });
+        // document.getElementById("page_content").innerHTML='<object type="text/html" data="pages/home.html" ></object>';
+    });
+</script>
 </html>
