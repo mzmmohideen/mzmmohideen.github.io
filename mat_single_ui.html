@@ -68,15 +68,39 @@
 		}*/
     </style>
 	<title></title>
-	<link href="static/css/materialize.min.css" rel="stylesheet" type="text/css">
+	<!-- <link href="static/css/materialize.min.css" rel="stylesheet" type="text/css">
 	<script src="static/js/jquery.min.js"></script>
 	<script src="static/js/materialize.min.js"></script>
+    <script src="static/js/app.js"></script> -->
+    
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">    
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
     <script src="static/js/app.js"></script>
 </head>
 <body>
 <div id="container">
 	<div class="app">
-		<nav>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">                
+                <div id="myNavbar" style="cursor: pointer;" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a class="home"via-link via-href="#home">Home</a></li>
+                        <li><a class="pricing"via-link via-href="#pricing">Tariff</a></li>
+                        <li><a class="portfolio"via-link via-href="#portfolio">Testimonial</a></li>
+                        <li><a class="contactus"via-link via-href="#contactus">Contact US</a></li>
+                        <li><a class="about"via-link via-href="#about">Who We are!</a></li>
+                        <li><a class="services"via-link via-href="#services">What we Do!</a></li>
+                        <li><a class="nav navbar-brand" style="margin-left: 80%;margin-top: -5% ">
+                                <img style="width: 200px;" src="static/images/demo_logo.gif" alt="Logo"/>
+                            </a>
+                        </li>
+                    </ul>                    
+                </div>                
+                <!--/.nav-collapse -->
+            </div>
+        </nav>
+		<!-- <nav>
 		    <div class="nav-wrapper" style="color: white !important">
 		      <a class="brand-logo right">
 		      	<img style="padding: 10px;width: 200px;" src="static/images/demo_logo.gif" alt="Logo"/>
@@ -90,7 +114,7 @@
 		        <li><a class="services"via-link via-href="#services">What we Do!</a></li>
 		      </ul>
 		    </div>
-		 </nav>
+		 </nav> -->
          <div class="app-content">
             <div id="content" via-views></div>
         </div>
