@@ -7,7 +7,7 @@
 }
 /* =======================================================
 *
-* 	Template Style 
+*   Template Style 
 *
 * ======================================================= */
 body {
@@ -236,6 +236,7 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 100%;
   float: left;
   position: relative;
+  height: 100vh;
 }
 
 .fh5co-video {
@@ -355,7 +356,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 #fh5co-counter,
 #fh5co-event {
-  height: 850px;
+  height: 100vh;
   float: left;
 }
 #fh5co-counter .display-t,
@@ -473,6 +474,16 @@ h1, h2, h3, h4, h5, h6, figure {
 @media screen and (max-width: 480px) {
   .timeline:before {
     margin-left: -64px;
+  }
+  .simply-countdown > .simply-section > div {
+    width: 70px !important;
+    height: 70px !important;
+  }
+  .simply-countdown > .simply-section .simply-amount {
+    font-size: 14px !important;
+  }
+  .simply-countdown > .simply-section .simply-word {
+    font-size: 11px !important;
   }
 }
 .timeline > li {
@@ -1640,7 +1651,7 @@ form label {
 }
 @media screen and (max-width: 768px) {
   .fh5co-nav-toggle {
-    display: block;
+    display: none;
   }
 }
 
