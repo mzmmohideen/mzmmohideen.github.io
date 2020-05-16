@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 0; /* modified on 20200515 */
   /*left: 0;*/
   bottom: 0;
-  width: 300px;
+  width: 250px;
   transition: all ease-in-out 0.5s;
   z-index: 9997;
   transition: all 0.5s;
@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 1199px) {
   #header {
-    right: -300px;
+    right: -250px;
   }
   #main {
     margin-right: 0;
