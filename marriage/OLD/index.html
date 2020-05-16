@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+      <title>Fullscreen Background Image Slideshow</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+      <link rel="stylesheet" type="text/css" href="style.css" />
+  <script type="text/javascript" src="modernizr.custom.js"></script>
+  </head>
+  <body id="page">
+      <ul class="cb-slideshow">
+          <li><span>Image 01</span></li>
+          <li><span>Image 02</span></li>
+          <li><span>Image 03</span></li>
+          <li><span>Image 04</span></li>
+          <li><span>Image 06</span></li>
+          <li><span>Image 07</span></li>
+          <li><span>Image 08</span></li>
+          <li><span>Image 09</span></li>
+          <li><span>Image 010</span></li>
+          <li><span>Image 011</span></li>
+      </ul>
+  </body>
+  <script type="text/javascript">
+    href = window.location.href
+    link = href.match(/([^#]*)\/*$/)[1];
+    console.log('link', link);
+    if(link == 'linkedin') {
+      window.location = "https://linkedin.com/in/mzmmohideen/"
+    }
+    else if(link == 'twitter') {
+      window.location = "https://twitter.com/mzmmohideen"
+    }
+    else if(link == 'git') {
+      window.location = "https://www.github.com/mzmmohideen"
+    }
+    else if(link == 'quora') {
+      window.location = "https://www.quora.com/profile/M-Z-Mohammed-Mohideen"
+    }
+    else if(link == 'fb') {
+      window.location = "https://www.facebook.com/mzmmohideen"
+    }
+    else if(link == 'so') {
+      window.location = "https://stackoverflow.com/users/4453737/mohideen-ibn-mohammed"
+    }
+    // else if(link != 'so') {
+    //   window.location = "https://stackoverflow.com/users/4453737/mohideen-ibn-mohammed"
+    // }
+    // else {
+    //   document.getElementById( 'page' ).style.display = 'none';
+    // }
+    
+    
+
+  </script>
+</html>
