@@ -1,0 +1,503 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggl | Home</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <style type="text/css">
+      .navbar {
+        position: fixed;
+        overflow: hidden;
+        top: 0;
+        width: 100%;
+        z-index: 99;
+      }
+      li > a {
+        color: white !important; text-shadow: 2px 2px #ff0000;
+      }
+      li a:hover {
+        background: #ddd;
+        color: black;
+        display: block;
+        text-decoration: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: url(./img/home/home-navbar.jpg) !important; background-position: center; background-repeat: no-repeat; padding: 0 !important">
+        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <img class="navbar-brand" src="./img/home/bg.png"/ height="7.5%" width="10%">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about_us">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Learning</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section id="banner" class="sectionBanner" style="background: url(./img/home/home-bg.png); background-repeat: no-repeat; background-color: black; background-position: center;height: 100%;">
+      <div class="container">
+        <div class="bannerContent">
+          <div class="bannerTxt" style="color: yellow; text-shadow: 2px 2px #ff0000;">
+            <h1>Welcome to MadlookzVFX</h1>
+            <h2>
+              The New Algorithm for VFX learning.
+            </h2>
+          </div>
+          <!-- <div class="bannerImg">
+            <img src="./img/home/bg.png" alt="MadlookzVFX" />
+          </div> -->
+          <a
+            href="#"
+            class="togglDefaultbutton bgFilled bgRed colorWhite"
+            rel=""
+            target="_self"
+            ><span>Sign up</span></a
+          >
+          <!-- <div class="bannerTimer">
+            <img
+              src="./img/home/banner-timer.svg"
+              alt="timer"
+              width="32"
+              height="32"
+            />
+          </div> -->
+        </div>
+      </div>
+    </section>
+
+    <section id="about_us" class="sectionBenefits" style="padding-top: 5rem">
+      <div class="container">
+        <div class="benefitTitle">
+          <h2 class="benefitHeading">About Us</h2>
+          <div class="benefitsSingle bgYellow">
+            <div class="row" style="margin-top: 5%">
+              <div class="col-lg-6">
+                <div class="benefitCard">
+                  <p class="benefitSubHeading">
+                    MadlookzVFX is a platform for all the VFX artist to learn easy and efficient pro-level tips and tricks about visual effects Industry. If you want to get production level training materials and get through the barriers of VFX mark line then do visit our Youtube channel for free tutorials.
+                    Follow our other social media handles for more industry updates
+                  </p>
+                </div>
+              </div>            
+              <div class="col-lg-6">
+                <video style="padding: 10%; width: 100%" class="elementor-video" src="https://madlookzvfx.com/wp-content/uploads/2019/08/output_free.mp4" autoplay="" controls="" muted="muted" controlslist="nodownload"></video>
+              </div>
+            </div>
+          </div>        
+        <div class="benefitsSingle bgPinkDark">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="centerImg">
+                <img
+                  src="./img/home/toggl-everywhere.png"
+                  alt="a few benefits"
+                />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="benefitCard">
+                <h5>Easy peasy</h5>
+                <h3>Hassle-free time tracking</h3>
+                <div class="signupForm">
+                  <div class="input-group mb-3">
+                    <label for="inputGroupSelect01">Your Location</label>
+                    <select class="custom-select" id="inputGroupSelect01">
+                      <option selected>Choose...</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      id="signupTerms"
+                    />
+                    <label for="signupTerms" class="signupTerms">
+                      <p>
+                        I agree to the
+                        <a href="#" target="_blank" rel="noopener"
+                          >terms of service</a
+                        >
+                        and
+                        <a href="#" target="_blank" rel="noopener"
+                          >privacy policy</a
+                        >
+                      </p></label
+                    >
+                  </div>
+                  <div class="signUpWith">
+                    <a
+                      href="#"
+                      class="togglDefaultbutton bgOutlined bgWhite colorDark googleBtn"
+                      ><span>Sign up with Google</span></a
+                    >
+                    <a
+                      href="#"
+                      class="togglDefaultbutton bgOutlined bgWhite colorDark appleBtn"
+                      ><span>Sign up with Apple</span></a
+                    >
+                  </div>
+                  <div class="divider"><span>or</span></div>
+                  <div class="signpuForm">
+                    <div class="form-group">
+                      <label for="formGroupExampleInput">Email Address</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                      <label for="formGroupExampleInput">Password</label>
+                      <input type="password" class="form-control" />
+                    </div>
+                    <div class="submitBtn">
+                      <a
+                        href="#"
+                        class="togglDefaultbutton bgFilled bgRed colorLight"
+                        ><span>Sign up with email</span></a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scheduleDemo">
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="demoimg">
+                <img src="./img/home/benefitDemo.png" alt="" />
+              </div>
+            </div>
+            <div class="col-lg-9">
+              <div class="demoContent">
+                <p>
+                  <strong>Onboarding a large team?</strong> Toggl offers a free
+                  demo to teams of 15 and larger. Learn about our advanced
+                  features and how to quickly and easily get your team started
+                  with Toggl.
+                  <a href="/demo-request?source=homepage"
+                    >Schedule your demo today</a
+                  >.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <div class="testmonialHeadings">
+          <h2>Sweet Nothings</h2>
+          <p>Some client love.</p>
+        </div>
+        <div class="testmonialCarosel">
+          <h4>testimonials</h4>
+        </div>
+      </div>
+    </section>
+    <section id="pricingOverview" class="pricingOverview">
+      <div class="container">
+        <div class="pricingOverviewWrapper">
+          <h5>Plans to suit everyone</h5>
+          <div class="row">
+            <div class="col-lg-4 borderRight">
+              <div class="pricingPanel">
+                <h3>Enterprise</h3>
+                <p>A custom plan for your complex or large organization.</p>
+                <div class="pricingImg">
+                  <img src="./img/home/burger.png" alt="" />
+                </div>
+                <a
+                  href="#"
+                  class="togglDefaultbutton bgFilled bgWhite colorDark"
+                  ><span>Contact us</span></a
+                >
+              </div>
+            </div>
+            <div class="col-lg-4 borderRight">
+              <div class="pricingPanel">
+                <h3>Premium</h3>
+                <p>Effortless team time management.</p>
+                <div class="pricingImg">
+                  <img src="./img/home/premium.png" alt="Premium" />
+                </div>
+                <a
+                  href="#"
+                  class="togglDefaultbutton bgFilled bgWhite colorDark"
+                  ><span>Start Free Trial</span></a
+                >
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="pricingPanel">
+                <h3>Starter</h3>
+                <p>Compact time tracking & reporting.</p>
+                <div class="pricingImg">
+                  <img src="./img/home/started.png" alt="Premium" />
+                </div>
+                <a
+                  href="#"
+                  class="togglDefaultbutton bgFilled bgWhite colorDark"
+                  ><span>Start Free Trial</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="newTools" class="newTools">
+      <div class="container">
+        <div class="newToolText">
+          <img src="./img/home/newTool.png" alt="New tool" />
+        </div>
+        <h1>Check out our new tools</h1>
+        <h5>
+          Our Toggl tracking tool was just the beginning, supercharge your
+          productivity with our new tools.
+        </h5>
+        <div class="newToolSplit">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="newToolCard">
+                <h3>Toggl plan</h3>
+                <p>Beautifully simple<br />project planning</p>
+                <a
+                  href="#"
+                  class="togglDefaultbutton bgFilled bgPurple colorWhite"
+                  rel=""
+                  target="_self"
+                  ><span>Learn More</span></a
+                >
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="newToolCard">
+                <h3>Toggl Hire</h3>
+                <p>Effortless hiring for<br />modern teams</p>
+                <a
+                  href="#"
+                  class="togglDefaultbutton bgFilled bgPink colorWhite"
+                  rel=""
+                  target="_self"
+                  ><span>Learn More</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer id="footer" class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="logo">
+              <h3>Logo</h3>
+            </div>
+          </div>
+          <div class="col">
+            <div class="footerPanel">
+              <h5>Toggl</h5>
+              <ul>
+                <li>
+                  <a href="#" data-spa="">Full Plan Comparison</a>
+                </li>
+                <li><a href="#" data-spa="">Team</a></li>
+                <li><a href="#" data-spa="">Jobs</a></li>
+                <li><a href="#">Media Kit</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li>
+                  <a href="#">API</a>
+                </li>
+                <li><a href="#" data-spa="">Legal Terms</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col">
+            <div class="footerPanel">
+              <h5>Product add-ons</h5>
+              <ul>
+                <li><a href="#">Integrations</a></li>
+                <li>
+                  <a href="#" target="_blank" rel="noopener"
+                    >Toggl Button for Chrome</a
+                  >
+                </li>
+                <li>
+                  <a href="#" target="_blank" rel="noopener"
+                    >Toggl Button for Firefox</a
+                  >
+                </li>
+                <li>
+                  <a href="#" target="_blank" rel="noopener">Android App</a>
+                </li>
+                <li><a href="#">iPhone App</a></li>
+                <li><a href="#">Desktop App</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col">
+            <div class="footerPanel">
+              <h5>Useful links</h5>
+              <ul>
+                <li><a href="#">Toggl Blog</a></li>
+                <li>
+                  <a href="#">Support &amp; Knowledge Base</a>
+                </li>
+                <li><a href="#">Request A Demo</a></li>
+                <li>
+                  <a href="#">Unicorn Startup Simulator</a>
+                </li>
+                <li><a href="#">Timesheets Magazine</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col">
+            <div class="footerPanel">
+              <h5>Resources</h5>
+              <ul>
+                <li><a href="#">Work From Home Hub</a></li>
+                <li><a href="#">Business Resources</a></li>
+                <li>
+                  <a href="#">Productivity Resources</a>
+                </li>
+                <li>
+                  <a href="#">Out of Office - Remote Working Guide</a>
+                </li>
+                <li><a href="#">Time Card Calculator</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footerSocialLinks">
+          <ul>
+            <li class="footerSocialLink footerSocialLink--twitter">
+              <a href="https://twitter.com/toggl" target="_blank" rel="noopener"
+                ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49 40">
+                  <path
+                    d="M49 4.7a21.6 21.6 0 0 1-5.8 1.6A9.7 9.7 0 0 0 47.6.7a20.1 20.1 0 0 1-6.3 2.5A10 10 0 0 0 33.9 0a9.6 9.6 0 0 0-7.2 3 9.8 9.8 0 0 0-2.9 7.1 10.4 10.4 0 0 0 .3 2.4A28.8 28.8 0 0 1 3.4 2.1 10.2 10.2 0 0 0 2.1 7a9.6 9.6 0 0 0 4.5 8.4A9.1 9.1 0 0 1 2 14.1v.2a9.9 9.9 0 0 0 2.2 6.4 9.8 9.8 0 0 0 5.8 3.4 9.8 9.8 0 0 1-2.7.3l-1.9-.2a10 10 0 0 0 3.5 5 9.7 9.7 0 0 0 5.8 2A19.5 19.5 0 0 1 2.4 36L0 35.9a30.1 30.1 0 0 0 33.5-2.2 31 31 0 0 0 5.7-6.6A28.6 28.6 0 0 0 44 11.3V10a20.5 20.5 0 0 0 5-5.3z"
+                  ></path></svg
+              ></a>
+            </li>
+            <li class="footerSocialLink footerSocialLink--facebook">
+              <a
+                href="https://www.facebook.com/Toggl"
+                target="_blank"
+                rel="noopener"
+                ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 49">
+                  <path
+                    d="M15 49V26.6h8.4l.6-8.2h-9v-6.1c0-2.7.7-4.1 3.5-4.1h5.2L24 .4h-.8A41.4 41.4 0 0 0 18 0c-4 0-7 1.1-9 3.2a11.2 11.2 0 0 0-3 8v7.2H0v8.2h6V49h9z"
+                  ></path></svg
+              ></a>
+            </li>
+            <li class="footerSocialLink footerSocialLink--instagram">
+              <a
+                href="https://www.instagram.com/usetoggl"
+                target="_blank"
+                rel="noopener"
+                ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49 49">
+                  <path
+                    d="M24.5 4.4l9.9.2a13.5 13.5 0 0 1 4.6.8 7.7 7.7 0 0 1 2.8 1.8 7.8 7.8 0 0 1 1.8 2.8 13.7 13.7 0 0 1 .8 4.6c.1 2.6.2 3.4.2 9.9s0 7.3-.2 9.9a13.7 13.7 0 0 1-.8 4.6 8.1 8.1 0 0 1-4.7 4.7 13.7 13.7 0 0 1-4.6.8l-9.9.2-9.9-.2a13.7 13.7 0 0 1-4.6-.8A8.1 8.1 0 0 1 5.4 39a13.7 13.7 0 0 1-.8-4.6c-.1-2.6-.2-3.4-.2-9.9s0-7.3.2-9.9a13.7 13.7 0 0 1 .8-4.6 7.8 7.8 0 0 1 1.8-2.8A7.7 7.7 0 0 1 10 5.4a13.5 13.5 0 0 1 4.6-.8l9.9-.2m0-4.4L14.4.2a17.9 17.9 0 0 0-6 1.1 12.5 12.5 0 0 0-7.1 7.2 17.9 17.9 0 0 0-1.2 5.9C0 17 0 17.8 0 24.5s0 7.5.1 10.1a17.9 17.9 0 0 0 1.1 5.9 12.5 12.5 0 0 0 7.2 7.2 17.9 17.9 0 0 0 5.9 1.1l10.1.2 10.1-.2a17.9 17.9 0 0 0 5.9-1.1 12.5 12.5 0 0 0 7.2-7.2 17.9 17.9 0 0 0 1.1-5.9c.1-2.6.2-3.4.2-10.1s0-7.5-.2-10.1a17.9 17.9 0 0 0-1.1-5.9 12.5 12.5 0 0 0-7.2-7.2A17.9 17.9 0 0 0 34.6.2L24.5 0zm0 11.9a12.6 12.6 0 1 0 12.6 12.6 12.6 12.6 0 0 0-12.6-12.6zm0 20.8a8.2 8.2 0 1 1 8.2-8.2 8.2 8.2 0 0 1-8.2 8.2zm16-21.2a2.9 2.9 0 1 1-2.9-2.9 2.9 2.9 0 0 1 2.9 2.9z"
+                  ></path></svg
+              ></a>
+            </li>
+            <li class="footerSocialLink footerSocialLink--youtube">
+              <a
+                href="https://www.youtube.com/user/toggltimer"
+                target="_blank"
+                rel="noopener"
+                ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59 42">
+                  <path
+                    d="M22.6 0C14 .1 8.4.5 5.7 1.5A7.8 7.8 0 0 0 .8 7.1C.3 9.2 0 13.8 0 21v4c.1 6 .6 10 1.6 11.9s3.5 3.7 7.1 4.4 9.9.8 20.8.8h6.9c8.6-.1 14.2-.5 16.9-1.6a7.8 7.8 0 0 0 4.9-5.6c.5-2.1.8-6.7.8-13.9v-4c-.1-6-.6-10-1.6-11.9S53.9 1.4 50.3.8 40.4 0 29.5 0zm-.5 9.9L40.5 21 22.1 32.1z"
+                  ></path></svg
+              ></a>
+            </li>
+            <li class="footerSocialLink footerSocialLink--linkedin">
+              <a
+                href="https://www.linkedin.com/company/toggl"
+                target="_blank"
+                rel="noopener"
+                ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47 47">
+                  <path
+                    d="M43.5 0h-40A3.4 3.4 0 0 0 0 3.4v40.2A3.4 3.4 0 0 0 3.5 47h40a3.4 3.4 0 0 0 3.5-3.4V3.4A3.4 3.4 0 0 0 43.5 0zM13.9 40.1H7V17.6h7zm-3.4-25.5a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm29.6 25.5h-7v-11c0-2.6 0-5.9-3.6-5.9S25.3 26 25.3 29v11.1h-7V17.6H25v3.1h.1a7.3 7.3 0 0 1 6.6-3.6c7.1 0 8.4 4.7 8.4 10.7V40z"
+                  ></path></svg
+              ></a>
+            </li>
+            <li class="footerSocialLink footerSocialLink--github">
+              <a href="https://github.com/toggl" target="_blank" rel="noopener"
+                ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51 49">
+                  <path
+                    d="M25.5 0a25.1 25.1 0 0 0-8.1 48.9 1.3 1.3 0 0 0 1.7-1.2v-4.3C12 44.9 10.5 40 10.5 40c-1.2-2.9-2.8-3.7-2.8-3.7-2.3-1.6.2-1.5.2-1.5a5.4 5.4 0 0 1 3.9 2.6c2.3 3.8 6 2.7 7.4 2.1a5.3 5.3 0 0 1 1.6-3.3c-5.7-.6-11.6-2.8-11.6-12.4a9.6 9.6 0 0 1 2.6-6.7 8.9 8.9 0 0 1 .3-6.7s2.1-.7 7 2.6a24.6 24.6 0 0 1 12.8 0c4.9-3.2 7-2.6 7-2.6a8.9 8.9 0 0 1 .3 6.7 9.6 9.6 0 0 1 2.6 6.7c0 9.6-6 11.8-11.6 12.4a5.9 5.9 0 0 1 1.7 4.7v6.9A1.3 1.3 0 0 0 33 49h.5a25.1 25.1 0 0 0-8-49z"
+                  ></path></svg
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <p class="footerAffiliateLinks">
+          Check out our other tools,
+          <a href="https://toggl.com/plan/" target="_blank" rel="noopener"
+            >Toggl Plan</a
+          >
+          for project management, and
+          <a href="https://toggl.com/hire/" target="_blank" rel="noopener"
+            >Toggl Hire</a
+          >
+          for recruiting.
+        </p>
+      </div>
+    </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
