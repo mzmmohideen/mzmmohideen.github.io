@@ -5,35 +5,35 @@
     <title>Toggl | Home</title>
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
+      href="./css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style.css" />
     <style type="text/css">
       .navbar {
         position: fixed;
         overflow: hidden;
         top: 0;
+        height: 10%;
         width: 100%;
         z-index: 99;
       }
-      li > a {
-        color: white !important; text-shadow: 2px 2px #ff0000;
-      }
-      li a:hover {
-        background: #ddd;
-        color: black;
+      .dropdown:hover>.dropdown-menu {
         display: block;
-        text-decoration: none !important;
+        background-color: white;
       }
+      .dropdown {
+        z-index: 99;
+      }
+
+      /*.dropdown>.dropdown-toggle:active {
+        pointer-events: none;
+      }*/
     </style>
   </head>
   <body>
     <header id="header">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: url(./img/home/home-navbar.jpg) !important; background-position: center; background-repeat: no-repeat; padding: 0 !important">
-        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-        <img class="navbar-brand" src="./img/home/bg.png"/ height="7.5%" width="10%">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">MadlookzVFX</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -55,8 +55,15 @@
             <li class="nav-item">
               <a class="nav-link" href="#about_us">About Us</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#">Learning</a>
+            </li> -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Learning</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">E-Learning</a>
+                <a class="dropdown-item" href="#">Free Learning</a>
+              </div>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Blog</a>
@@ -68,56 +75,156 @@
         </div>
       </nav>
     </header>
-    <section id="banner" class="sectionBanner" style="background: url(./img/home/home-bg.png); background-repeat: no-repeat; background-color: black; background-position: center;height: 100%;">
+    <section id="banner" class="sectionBanner" style="top: 10%; height: 90%;">
       <div class="container">
         <div class="bannerContent">
-          <div class="bannerTxt" style="color: yellow; text-shadow: 2px 2px #ff0000;">
+          <div class="bannerTxt">
             <h1>Welcome to MadlookzVFX</h1>
             <h2>
               The New Algorithm for VFX learning.
             </h2>
           </div>
-          <!-- <div class="bannerImg">
-            <img src="./img/home/bg.png" alt="MadlookzVFX" />
-          </div> -->
+          <div class="bannerImg">
+            <img src="./img/home/home-banner.jpg" alt="Time tracking" />
+          </div>
           <a
             href="#"
             class="togglDefaultbutton bgFilled bgRed colorWhite"
             rel=""
             target="_self"
-            ><span>Sign up</span></a
+            ><span><i class="fa fa-youtube" aria-hidden="true"></i> &nbsp; Subscribe</span></a
           >
-          <!-- <div class="bannerTimer">
-            <img
-              src="./img/home/banner-timer.svg"
-              alt="timer"
-              width="32"
-              height="32"
-            />
-          </div> -->
         </div>
       </div>
     </section>
 
-    <section id="about_us" class="sectionBenefits" style="padding-top: 5rem">
+    <section id="about_us" class="sectionBenefits">
       <div class="container">
         <div class="benefitTitle">
           <h2 class="benefitHeading">About Us</h2>
-          <div class="benefitsSingle bgYellow">
+          <div class="benefitsSingle bgWhite">
             <div class="row" style="margin-top: 5%">
-              <div class="col-lg-6">
-                <div class="benefitCard">
-                  <p class="benefitSubHeading">
+              <div class="col-lg-12">
+                <p style="padding: 5%">
                     MadlookzVFX is a platform for all the VFX artist to learn easy and efficient pro-level tips and tricks about visual effects Industry. If you want to get production level training materials and get through the barriers of VFX mark line then do visit our Youtube channel for free tutorials.
                     Follow our other social media handles for more industry updates
-                  </p>
-                </div>
-              </div>            
-              <div class="col-lg-6">
+                </p>
+              </div>
+              <div class="col-lg-12">
                 <video style="padding: 10%; width: 100%" class="elementor-video" src="https://madlookzvfx.com/wp-content/uploads/2019/08/output_free.mp4" autoplay="" controls="" muted="muted" controlslist="nodownload"></video>
               </div>
             </div>
-          </div>        
+          </div>
+        </div>
+        <div class="benefitsSingle bgPink">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="centerImg">
+                <img src="./img/home/a-few-benefits.png" alt="a few benefits" />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="benefitCard">
+                <h5>Easy peasy</h5>
+                <h3>Hassle-free time tracking</h3>
+                <p>
+                  Toggl makes time tracking so simple you’ll actually use it.
+                  But even if you forget, our tracking reminders and idle
+                  detection have your back.
+                </p>
+                <a
+                  href="#"
+                  class="togglDefaultbutton bgOutlined bgWhite colorDark"
+                  ><span>All Features</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="benefitsSingle bgYellow">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="benefitCard">
+                <h5>Easy peasy</h5>
+                <h3>Hassle-free time tracking</h3>
+                <p>
+                  Toggl makes time tracking so simple you’ll actually use it.
+                  But even if you forget, our tracking reminders and idle
+                  detection have your back.
+                </p>
+                <a
+                  href="#"
+                  class="togglDefaultbutton bgOutlined bgWhite colorDark"
+                  ><span>All Features</span></a
+                >
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="centerImg">
+                <img
+                  src="./img/home/follow-the-money.png"
+                  alt="a few benefits"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="benefitsSingle bgGreen">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="centerImg">
+                <img
+                  src="./img/home/make-smarter-choice.png"
+                  alt="a few benefits"
+                />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="benefitCard">
+                <h5>Easy peasy</h5>
+                <h3>Hassle-free time tracking</h3>
+                <p>
+                  Toggl makes time tracking so simple you’ll actually use it.
+                  But even if you forget, our tracking reminders and idle
+                  detection have your back.
+                </p>
+                <a
+                  href="#"
+                  class="togglDefaultbutton bgOutlined bgWhite colorDark"
+                  ><span>All Features</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="benefitsSingle bgPurple">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="benefitCard">
+                <h5>Easy peasy</h5>
+                <h3>Hassle-free time tracking</h3>
+                <p>
+                  Toggl makes time tracking so simple you’ll actually use it.
+                  But even if you forget, our tracking reminders and idle
+                  detection have your back.
+                </p>
+                <a
+                  href="#"
+                  class="togglDefaultbutton bgOutlined bgWhite colorDark"
+                  ><span>All Features</span></a
+                >
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="centerImg">
+                <img
+                  src="./img/home/toggl-everywhere.png"
+                  alt="a few benefits"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="benefitsSingle bgPinkDark">
           <div class="row">
             <div class="col-lg-6">
@@ -484,7 +591,7 @@
         </p>
       </div>
     </footer>
-    <script
+    <!-- <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
       crossorigin="anonymous"
@@ -493,11 +600,7 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
       integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
       crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
+    ></script> -->
+    <script src="./js/bootstrap.min.js"></script>
   </body>
 </html>
