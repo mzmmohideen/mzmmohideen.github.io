@@ -6,32 +6,76 @@
     <link
       rel="stylesheet"
       href="./css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">    
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/common.css" />
     <style type="text/css">
-      .navbar {
+      .header {
         position: fixed;
-        overflow: hidden;
         top: 0;
         height: 10%;
         width: 100%;
         z-index: 99;
+        background-color: white;
       }
-      .dropdown:hover>.dropdown-menu {
+      /*section {
+        top: 0;
+      }*/
+      /*.dropdown:hover>.dropdown-menu {
         display: block;
         background-color: white;
       }
       .dropdown {
         z-index: 99;
-      }
+      }*/
 
       /*.dropdown>.dropdown-toggle:active {
         pointer-events: none;
       }*/
+      .header-links ul li a {
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
-    <header id="header">
+    <header class="header" data-mobile-menu="false">
+      <span class="header-logo">
+        <a href="index.html" data-spa="">
+          Madlookzvfx
+        </a>
+      </span>
+      <div class="header-links">
+        <ul>
+          <li>
+            <a href="#" class="header-links__link">Home</a>
+          </li>
+          <li>
+            <a href="#about_us" class="header-links__link">About Us</a>
+          </li>
+          <li class="header-links__dropdown">
+            <a href="#" class="header-links__link">Learning</a>
+            <ul class="header-links__dropdown__content">
+              <li>
+                <a href="#e_learning" class="header-links__link">E - Learning</a>
+              </li>
+              <li>
+                <a href="time-tracking-software-companies/index.html" class="header-links__link">Free Learning
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#about_us" class="header-links__link">Blog</a>
+          </li>
+          <li>
+            <a href="#about_us" class="header-links__link">Contact Us</a>
+          </li>
+          <!-- <li class="hide-logged"><a href="signup/index.html" class="header-links__link header-links__link--heavy header-sign-up-link" data-spa="">Sign up <svg xmlns="http://www.w3.org/2000/svg" width="52.5" height="33.4" viewBox="0 0 52.5 33.4"><path class="sign-up-line sign-up-line--1" d="M6,18-2.3-.4" transform="translate(4.3 13.4)" style="stroke-linecap: round; stroke-miterlimit: 10; stroke-dashoffset: 22px;" fill="none" stroke-width="4"></path><path class="sign-up-line sign-up-line--2" d="M22,16.1V-11.4" transform="translate(4.3 13.4)" style="stroke-linecap: round; stroke-miterlimit: 10; stroke-dashoffset: 36px;" fill="none" stroke-width="4"></path><path class="sign-up-line sign-up-line--3" d="M37.9,18,46.2-1.4" transform="translate(4.3 13.4)" style="stroke-linecap: round; stroke-miterlimit: 10; stroke-dashoffset: 22px;" fill="none" stroke-width="4"></path></svg> <svg xmlns="http://www.w3.org/2000/svg" width="52.5" height="33.4" viewBox="0 0 52.5 33.4"><path class="sign-up-line sign-up-line--4" d="M6,18-2.3-.4" transform="translate(4.3 13.4)" style="stroke-linecap: round; stroke-miterlimit: 10; stroke-dashoffset: 22px;" fill="none" stroke-width="4"></path><path class="sign-up-line sign-up-line--5" d="M22,16.1V-11.4" transform="translate(4.3 13.4)" style="stroke-linecap: round; stroke-miterlimit: 10; stroke-dashoffset: 36px;" fill="none" stroke-width="4"></path><path class="sign-up-line sign-up-line--6" d="M37.9,18,46.2-1.4" transform="translate(4.3 13.4)" style="stroke-linecap: round; stroke-miterlimit: 10; stroke-dashoffset: 22px;" fill="none" stroke-width="4"></path></svg></a></li> -->
+        </ul>
+        </div>
+    </header>
+
+    <!-- <header id="header">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">MadlookzVFX</a>
         <button
@@ -55,9 +99,6 @@
             <li class="nav-item">
               <a class="nav-link" href="#about_us">About Us</a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="#">Learning</a>
-            </li> -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Learning</a>
               <div class="dropdown-menu">
@@ -74,8 +115,9 @@
           </ul>
         </div>
       </nav>
-    </header>
-    <section id="banner" class="sectionBanner" style="top: 10%; height: 90%;">
+    </header> -->
+    <!-- <section id="banner" class="sectionBanner" style="top: 10%; height: 90%;"> -->
+    <section id="banner" class="sectionBanner">
       <div class="container">
         <div class="bannerContent">
           <div class="bannerTxt">
@@ -116,227 +158,40 @@
             </div>
           </div>
         </div>
-        <div class="benefitsSingle bgPink">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="centerImg">
-                <img src="./img/home/a-few-benefits.png" alt="a few benefits" />
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="benefitCard">
-                <h5>Easy peasy</h5>
-                <h3>Hassle-free time tracking</h3>
-                <p>
-                  Toggl makes time tracking so simple you’ll actually use it.
-                  But even if you forget, our tracking reminders and idle
-                  detection have your back.
-                </p>
-                <a
-                  href="#"
-                  class="togglDefaultbutton bgOutlined bgWhite colorDark"
-                  ><span>All Features</span></a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="benefitsSingle bgYellow">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="benefitCard">
-                <h5>Easy peasy</h5>
-                <h3>Hassle-free time tracking</h3>
-                <p>
-                  Toggl makes time tracking so simple you’ll actually use it.
-                  But even if you forget, our tracking reminders and idle
-                  detection have your back.
-                </p>
-                <a
-                  href="#"
-                  class="togglDefaultbutton bgOutlined bgWhite colorDark"
-                  ><span>All Features</span></a
-                >
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="centerImg">
-                <img
-                  src="./img/home/follow-the-money.png"
-                  alt="a few benefits"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="benefitsSingle bgGreen">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="centerImg">
-                <img
-                  src="./img/home/make-smarter-choice.png"
-                  alt="a few benefits"
-                />
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="benefitCard">
-                <h5>Easy peasy</h5>
-                <h3>Hassle-free time tracking</h3>
-                <p>
-                  Toggl makes time tracking so simple you’ll actually use it.
-                  But even if you forget, our tracking reminders and idle
-                  detection have your back.
-                </p>
-                <a
-                  href="#"
-                  class="togglDefaultbutton bgOutlined bgWhite colorDark"
-                  ><span>All Features</span></a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="benefitsSingle bgPurple">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="benefitCard">
-                <h5>Easy peasy</h5>
-                <h3>Hassle-free time tracking</h3>
-                <p>
-                  Toggl makes time tracking so simple you’ll actually use it.
-                  But even if you forget, our tracking reminders and idle
-                  detection have your back.
-                </p>
-                <a
-                  href="#"
-                  class="togglDefaultbutton bgOutlined bgWhite colorDark"
-                  ><span>All Features</span></a
-                >
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="centerImg">
-                <img
-                  src="./img/home/toggl-everywhere.png"
-                  alt="a few benefits"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="benefitsSingle bgPinkDark">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="centerImg">
-                <img
-                  src="./img/home/toggl-everywhere.png"
-                  alt="a few benefits"
-                />
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="benefitCard">
-                <h5>Easy peasy</h5>
-                <h3>Hassle-free time tracking</h3>
-                <div class="signupForm">
-                  <div class="input-group mb-3">
-                    <label for="inputGroupSelect01">Your Location</label>
-                    <select class="custom-select" id="inputGroupSelect01">
-                      <option selected>Choose...</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      type="checkbox"
-                      class="form-check-input"
-                      id="signupTerms"
-                    />
-                    <label for="signupTerms" class="signupTerms">
-                      <p>
-                        I agree to the
-                        <a href="#" target="_blank" rel="noopener"
-                          >terms of service</a
-                        >
-                        and
-                        <a href="#" target="_blank" rel="noopener"
-                          >privacy policy</a
-                        >
-                      </p></label
-                    >
-                  </div>
-                  <div class="signUpWith">
-                    <a
-                      href="#"
-                      class="togglDefaultbutton bgOutlined bgWhite colorDark googleBtn"
-                      ><span>Sign up with Google</span></a
-                    >
-                    <a
-                      href="#"
-                      class="togglDefaultbutton bgOutlined bgWhite colorDark appleBtn"
-                      ><span>Sign up with Apple</span></a
-                    >
-                  </div>
-                  <div class="divider"><span>or</span></div>
-                  <div class="signpuForm">
-                    <div class="form-group">
-                      <label for="formGroupExampleInput">Email Address</label>
-                      <input type="text" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                      <label for="formGroupExampleInput">Password</label>
-                      <input type="password" class="form-control" />
-                    </div>
-                    <div class="submitBtn">
-                      <a
-                        href="#"
-                        class="togglDefaultbutton bgFilled bgRed colorLight"
-                        ><span>Sign up with email</span></a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="scheduleDemo">
-          <div class="row">
-            <div class="col-lg-3">
-              <div class="demoimg">
-                <img src="./img/home/benefitDemo.png" alt="" />
-              </div>
-            </div>
-            <div class="col-lg-9">
-              <div class="demoContent">
-                <p>
-                  <strong>Onboarding a large team?</strong> Toggl offers a free
-                  demo to teams of 15 and larger. Learn about our advanced
-                  features and how to quickly and easily get your team started
-                  with Toggl.
-                  <a href="/demo-request?source=homepage"
-                    >Schedule your demo today</a
-                  >.
-                </p>
-              </div>
-            </div>
+      </div>
+    </section>
+    <section id="e_learning" class="sectionBenefits bgWhite">
+      <div class="container">
+        <div class="benefitTitle">
+          <h2 class="benefitHeading">E - Learning</h2>
+          <div class="benefitsSingle e_learning">
+              <h1 style="padding: 5%">
+                  Coming Soon...
+              </h1>
           </div>
         </div>
       </div>
     </section>
-    <section id="testimonials" class="testimonials">
+    <section id="#e_learning" class="sectionBenefits">
       <div class="container">
-        <div class="testmonialHeadings">
-          <h2>Sweet Nothings</h2>
-          <p>Some client love.</p>
-        </div>
-        <div class="testmonialCarosel">
+        <div class="benefitTitle">
+          <h2 class="benefitHeading">E - Learning</h2>
+          <div class="benefitsSingle bgWhite">
+            <div class="row" style="margin-top: 5%">
+              <div class="col-lg-12">
+                <p style="padding: 5%">
+                    MadlookzVFX is a platform for all the VFX artist to learn easy and efficient pro-level tips and tricks about visual effects Industry. If you want to get production level training materials and get through the barriers of VFX mark line then do visit our Youtube channel for free tutorials.
+                    Follow our other social media handles for more industry updates
+                </p>
+              </div>
+              <div class="col-lg-12">
+                <video style="padding: 10%; width: 100%" class="elementor-video" src="https://madlookzvfx.com/wp-content/uploads/2019/08/output_free.mp4" autoplay="" controls="" muted="muted" controlslist="nodownload"></video>
+              </div>
+            </div>
+          </div>
+        <!-- <div class="testmonialCarosel">
           <h4>testimonials</h4>
-        </div>
+        </div> -->
       </div>
     </section>
     <section id="pricingOverview" class="pricingOverview">
