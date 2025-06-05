@@ -49,28 +49,67 @@
 
   <main style="padding: 20px;">
     <h1>🐍 Python Coding Challenges</h1>
-    
+
     <!-- Challenge 1 -->
     <div class="challenge">
       <h2>🔢 Challenge 1: Print Numbers 1 to 5</h2>
       <p>Write a loop that prints numbers from 1 to 5.</p>
-      <textarea id="code1">for i in range(1, 6):\n    print(i)</textarea><br>
+      <textarea id="code1">for i in range(1, 6):
+    print(i)</textarea><br>
       <button class="run-button" onclick="runCode('code1', 'output1')">Run Code</button>
       <pre class="output" id="output1"></pre>
     </div>
 
     <!-- Challenge 2 -->
     <div class="challenge">
-      <h2>🔁 Challenge 2: Reverse a String</h2>
+      <h2>🖁 Challenge 2: Reverse a String</h2>
       <p>Write a program to reverse the string "hello".</p>
-      <textarea id="code2">s = "hello"\nprint(s[::-1])</textarea><br>
+      <textarea id="code2">s = "hello"
+print(s[::-1])</textarea><br>
       <button class="run-button" onclick="runCode('code2', 'output2')">Run Code</button>
       <pre class="output" id="output2"></pre>
     </div>
 
+    <!-- Challenge 3 -->
+    <div class="challenge">
+      <h2>⭐ Challenge 3: Sum of First 10 Numbers</h2>
+      <p>Write a program to find the sum of numbers from 1 to 10.</p>
+      <textarea id="code3">total = 0
+for i in range(1, 11):
+    total += i
+print(total)</textarea><br>
+      <button class="run-button" onclick="runCode('code3', 'output3')">Run Code</button>
+      <pre class="output" id="output3"></pre>
+    </div>
+
+    <!-- Challenge 4 -->
+    <div class="challenge">
+      <h2>🧹 Challenge 4: Check Even or Odd</h2>
+      <p>Check if a number is even or odd. Try changing the value of <code>num</code>.</p>
+      <textarea id="code4">num = 4
+if num % 2 == 0:
+    print("Even")
+else:
+    print("Odd")</textarea><br>
+      <button class="run-button" onclick="runCode('code4', 'output4')">Run Code</button>
+      <pre class="output" id="output4"></pre>
+    </div>
+
+    <!-- Challenge 5 -->
+    <div class="challenge">
+      <h2>⚖️ Challenge 5: Factorial of a Number</h2>
+      <p>Calculate factorial of a number using a loop. Try changing the value of <code>n</code>.</p>
+      <textarea id="code5">n = 5
+fact = 1
+for i in range(1, n+1):
+    fact *= i
+print(fact)</textarea><br>
+      <button class="run-button" onclick="runCode('code5', 'output5')">Run Code</button>
+      <pre class="output" id="output5"></pre>
+    </div>
+
     <footer style="text-align: center; margin-top: 40px;">
-      Made with ❤️ by 
-      <a href="https://www.linkedin.com/in/mzmmohideen" target="_blank">Mohammed Mohideen M Z</a> | 
+      <p>&copy; 2025 </p>Made with ❤️ by <a href="https://www.linkedin.com/in/mzmmohideen" target="_blank">Mohammed Mohideen M Z</a> | 
       <a href="https://github.com/mzmmohideen" target="_blank">GitHub</a>
     </footer>
   </main>
