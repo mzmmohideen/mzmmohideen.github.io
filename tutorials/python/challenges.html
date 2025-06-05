@@ -115,25 +115,29 @@ print(fact)</textarea><br>
     </footer>
   </main>
 
-  <!-- Load Skulpt BEFORE runCode -->
+  <!-- ✅ Load Skulpt first -->
   <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/skulpt.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/skulpt-stdlib.js"></script>
-  <script>
-    function builtinRead(x) {
-      if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined) {
-        throw "File not found: '" + x + "'";
-      }
-      return Sk.builtinFiles["files"][x];
-    }
 
-    function runCode(codeId, outputId) {
-      const prog = document.getElementById(codeId).value;
-      const output = document.getElementById(outputId);
-      output.innerHTML = '';
-      Sk.configure({ output: text => output.innerHTML += text + "\n", read: builtinRead });
-      Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, prog))
-        .catch(err => output.innerHTML = err.toString());
-    }
+  <!-- ✅ Define runCode after Skulpt is loaded -->
+  <script>
+    window.onload = function () {
+      function builtinRead(x) {
+        if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined) {
+          throw "File not found: '" + x + "'";
+        }
+        return Sk.builtinFiles["files"][x];
+      }
+
+      window.runCode = function (codeId, outputId) {
+        const prog = document.getElementById(codeId).value;
+        const output = document.getElementById(outputId);
+        output.innerHTML = '';
+        Sk.configure({ output: text => output.innerHTML += text + "\n", read: builtinRead });
+        Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, prog))
+          .catch(err => output.innerHTML = err.toString());
+      };
+    };
   </script>
 </body>
 </html>
