@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Python Challenges</title>
+  <link rel="stylesheet" href="/assets/css/tutorial.css" />
+  <style>
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      font-family: monospace;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .challenge {
+      margin: 40px 0;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    .run-button {
+      padding: 6px 12px;
+      font-weight: bold;
+      color: white;
+      background: #0077cc;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .output {
+      background: #222;
+      color: #0f0;
+      padding: 10px;
+      font-family: monospace;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="topnav">
+    <a href="/index.html">Home</a>
+    <a href="/about.html">About</a>
+    <a href="/tutorials/index.html">Tutorials</a>
+    <a href="/tutorials/python/challenges.html">Python Challenges</a>
+  </div>
+
+  <main style="padding: 20px;">
+    <h1>🐍 Python Coding Challenges</h1>
+    
+    <!-- Challenge 1 -->
+    <div class="challenge">
+      <h2>🔢 Challenge 1: Print Numbers 1 to 5</h2>
+      <p>Write a loop that prints numbers from 1 to 5.</p>
+      <textarea id="code1">for i in range(1, 6):\n    print(i)</textarea><br>
+      <button class="run-button" onclick="runCode('code1', 'output1')">Run Code</button>
+      <pre class="output" id="output1"></pre>
+    </div>
+
+    <!-- Challenge 2 -->
+    <div class="challenge">
+      <h2>🔁 Challenge 2: Reverse a String</h2>
+      <p>Write a program to reverse the string "hello".</p>
+      <textarea id="code2">s = "hello"\nprint(s[::-1])</textarea><br>
+      <button class="run-button" onclick="runCode('code2', 'output2')">Run Code</button>
+      <pre class="output" id="output2"></pre>
+    </div>
+
+    <footer style="text-align: center; margin-top: 40px;">
+      Made with ❤️ by 
+      <a href="https://www.linkedin.com/in/mzmmohideen" target="_blank">Mohammed Mohideen M Z</a> | 
+      <a href="https://github.com/mzmmohideen" target="_blank">GitHub</a>
+    </footer>
+  </main>
+
+  <!-- Skulpt -->
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/skulpt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/skulpt-stdlib.js"></script>
+  <script>
+    function builtinRead(x) {
+      if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined) {
+        throw "File not found: '" + x + "'";
+      }
+      return Sk.builtinFiles["files"][x];
+    }
+
+    function runCode(codeId, outputId) {
+      const prog = document.getElementById(codeId).value;
+      const output = document.getElementById(outputId);
+      output.innerHTML = '';
+      Sk.configure({ output: text => output.innerHTML += text + "\n", read: builtinRead });
+      Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, prog))
+        .catch(err => output.innerHTML = err.toString());
+    }
+  </script>
+</body>
+</html>

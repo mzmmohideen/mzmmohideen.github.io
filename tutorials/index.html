@@ -1,26 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tutorials</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/assets/css/tutorial.css" />
+  <style>
+    .tutorial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+
+    .tutorial-card {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tutorial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .tutorial-card h3 {
+      margin-top: 0;
+      font-size: 1.3rem;
+    }
+
+    .tutorial-card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .tutorial-card a {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #444;
+      border-top: 1px solid #ddd;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #0077cc;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Tutorials</h1>
-    <nav><a href="/">Home</a> | <a href="/about.html">About</a></nav>
-  </header>
+  <div class="topnav">
+    <a href="/index.html">Home</a>
+    <a href="/about.html">About</a>
+    <a href="/tutorials/index.html">Tutorials</a>
+  </div>
 
   <main>
-    <h2>Python</h2>
-    <ul>
-      <li><a href="/tutorials/python/introduction.html">Introduction to Python</a></li>
-      <!-- Add more tutorials here -->
-    </ul>
+    <section style="text-align:center; padding: 40px 20px;">
+      <h1>📘 Tutorials</h1>
+      <p>Welcome! Choose a topic to start learning:</p>
+    </section>
+
+    <section class="tutorial-grid">
+      <div class="tutorial-card">
+        <h3>🐍 Python for Beginners</h3>
+        <p>Start with Python basics, variables, data types, loops, functions, and more.</p>
+        <a href="/tutorials/python/introduction.html">Start Learning →</a>
+      </div>
+
+      <div class="tutorial-card">
+        <h3>📊 Coming Soon</h3>
+        <p>Data Science with Python — NumPy, Pandas, Matplotlib, and Jupyter Notebooks.</p>
+        <a href="#">Coming Soon</a>
+      </div>
+
+      <div class="tutorial-card">
+        <h3>🌐 Coming Soon</h3>
+        <p>Web Development with Flask, Django, React, and API integration tutorials.</p>
+        <a href="#">Coming Soon</a>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Mohammed Mohideen</p>
+    <p>&copy; 2025 </p>Made with ❤️ by Mohammed Mohideen M Z
+    <a href="https://www.linkedin.com/in/mzmmohideen" target="_blank">Mohideen</a> | 
+    <a href="https://github.com/mzmmohideen" target="_blank">GitHub</a>
   </footer>
 </body>
 </html>
