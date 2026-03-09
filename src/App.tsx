@@ -18,9 +18,11 @@ import {
   Trophy,
   MessageSquare,
   Globe,
-  ArrowRight
+  ArrowRight,
+  Users
 } from 'lucide-react';
 import { Typewriter } from './components/Typewriter';
+import { ParticlesBackground } from './components/ParticlesBackground';
 import { cn } from './lib/utils';
 
 // --- Data ---
@@ -73,6 +75,27 @@ const EXPERIENCE = [
 
 const PROJECTS = [
   {
+    title: "Zawaj - Matrimonial Mediator Portal",
+    description: "A specialized portal for matrimonial mediation (under development).",
+    link: "https://ai.studio/apps/drive/15HDialI8hgd8RmB16QTEZhUHcyy6dzTf?fullscreenApplet=true",
+    tags: ["React", "Firebase", "Social", "Portal"],
+    icon: <Users className="w-5 h-5" />
+  },
+  {
+    title: "SAF Quiz",
+    description: "AI quiz master for TNPSC aspirants, providing intelligent, context-aware learning experiences.",
+    link: "https://ai.studio/apps/e62842c3-4b5d-42b1-b4e1-e39f614a9cce?fullscreenApplet=true",
+    tags: ["AI", "Generative AI", "Education", "Quiz"],
+    icon: <Cpu className="w-5 h-5" />
+  },
+  {
+    title: "Know or Knockout",
+    description: "A dynamic quiz game. Use admin & 1234 to test the app.",
+    link: "https://know-or-knockout-816323868190.us-west1.run.app",
+    tags: ["Python", "Django", "Quiz", "Game"],
+    icon: <Trophy className="w-5 h-5" />
+  },
+  {
     title: "Investment Campaign Planner",
     period: "Aug 2025 - Nov 2025",
     description: "AI-assisted features for customer investment channel planning, integrating LLM APIs for predictive analysis.",
@@ -110,7 +133,7 @@ const SKILLS = [
 
 const ACHIEVEMENTS = [
   { title: "20,000+ Stack Overflow Points", description: "Active contributor to the developer community with high reputation in Python and Software Engineering." },
-  { title: "500+ Candidates Trained", description: "Successfully mentored and trained aspiring developers in Python through online/offline sessions." },
+  { title: "500+ Students Trained", description: "Successfully mentored and trained candidates in Python, AWS, ReactJS, and PowerBI through online and offline sessions." },
   { title: "Best Performing Team Award", description: "Received at Sony India Software Center for Q3 2023." },
   { title: "CPL Hackathon Winner", description: "Won the competition at Sony India Software Center for innovative problem-solving." },
 ];
@@ -150,11 +173,38 @@ const SectionHeading = ({ children, subtitle }: { children: React.ReactNode; sub
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    const sections = ['about', 'experience', 'projects', 'skills', 'achievements', 'blog'];
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -166,7 +216,7 @@ export default function App() {
       )}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <a href="#" className="text-xl font-serif italic tracking-tighter hover:text-accent transition-colors">
-            M. Mohideen M Z
+            @mzmmohideen
           </a>
           
           <div className="hidden md:flex items-center gap-8">
@@ -174,7 +224,12 @@ export default function App() {
               <a 
                 key={link.name} 
                 href={link.href}
-                className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+                className={cn(
+                  "text-sm font-medium transition-colors",
+                  activeSection === link.href.substring(1) 
+                    ? "text-accent" 
+                    : "text-zinc-400 hover:text-white"
+                )}
               >
                 {link.name}
               </a>
@@ -223,6 +278,7 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
+        <ParticlesBackground />
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-accent/10 blur-[120px] rounded-full" />
           <div className="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-emerald-900/10 blur-[120px] rounded-full" />
@@ -253,13 +309,16 @@ export default function App() {
                 View Portfolio <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </motion.button>
               <div className="flex items-center gap-4">
-                <a href="https://github.com/mzmmohideen" target="_blank" className="p-3 rounded-full border border-white/10 hover:bg-white/5 transition-colors">
+                <a href="https://github.com/mzmmohideen" target="_blank" className="p-3 rounded-full border border-white/10 hover:bg-white/5 transition-colors" title="GitHub">
                   <Github className="w-5 h-5" />
                 </a>
-                <a href="https://linkedin.com/in/mzmmohideen" target="_blank" className="p-3 rounded-full border border-white/10 hover:bg-white/5 transition-colors">
+                <a href="https://linkedin.com/in/mzmmohideen" target="_blank" className="p-3 rounded-full border border-white/10 hover:bg-white/5 transition-colors" title="LinkedIn">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="mailto:mzmmohideen@gmail.com" className="p-3 rounded-full border border-white/10 hover:bg-white/5 transition-colors">
+                <a href="https://stackoverflow.com/users/4453737/mohammed-mohideen-m-z" target="_blank" className="p-3 rounded-full border border-white/10 hover:bg-white/5 transition-colors" title="Stack Overflow">
+                  <Code2 className="w-5 h-5" />
+                </a>
+                <a href="mailto:mzmmohideen@gmail.com" className="p-3 rounded-full border border-white/10 hover:bg-white/5 transition-colors" title="Email">
                   <Mail className="w-5 h-5" />
                 </a>
               </div>
@@ -294,22 +353,9 @@ export default function App() {
                 <p>
                   Recognized leader and mentor with a consistent track record of delivering mission-critical systems and driving innovation at companies like Sony and Turing.
                 </p>
-                <div className="pt-4 border-t border-white/5">
-                  <p className="text-sm font-serif italic text-zinc-500">
-                    "Proud son of Sakkena and Zakriya, whose support and values shaped my journey."
-                  </p>
-                </div>
-              </div>
-              
-              <div className="mt-10 grid grid-cols-2 gap-8">
-                <div>
-                  <h4 className="text-3xl font-serif italic text-accent">11+</h4>
-                  <p className="text-xs uppercase tracking-widest text-zinc-500 mt-1">Years Experience</p>
-                </div>
-                <div>
-                  <h4 className="text-3xl font-serif italic text-accent">20k+</h4>
-                  <p className="text-xs uppercase tracking-widest text-zinc-500 mt-1">StackOverflow Rep</p>
-                </div>
+                <p className="text-sm font-serif italic text-zinc-500 border-t border-white/5 pt-6">
+                  "Proud son of Sakkena and Zakriya, whose support and values shaped my journey."
+                </p>
               </div>
             </motion.div>
 
@@ -322,18 +368,42 @@ export default function App() {
               <div className="absolute inset-0 border-2 border-accent/20 rounded-3xl translate-x-6 translate-y-6 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-500" />
               <div className="relative h-full w-full bg-zinc-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
                 <img 
-                  src="https://picsum.photos/seed/mzmmohideen/800/800" 
-                  alt="Mohammed Mohideen" 
+                  src="https://i.pinimg.com/474x/50/35/0d/50350d9923e6b7342012084d2d55938c.jpg" 
+                  alt="Valluvar Kottam, Chennai" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-110 hover:scale-100"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/80 via-transparent to-transparent opacity-60" />
                 <div className="absolute bottom-6 left-6 right-6">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent font-bold">Based in Chennai, India</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-black font-bold">Based in</p>
                 </div>
               </div>
             </motion.div>
           </div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-8 border-t border-white/5 pt-12"
+          >
+            <div>
+              <h4 className="text-4xl md:text-5xl font-serif italic text-accent">11+</h4>
+              <p className="text-xs uppercase tracking-widest text-zinc-500 mt-2">Years Experience</p>
+            </div>
+            <div>
+              <h4 className="text-4xl md:text-5xl font-serif italic text-accent">5+</h4>
+              <p className="text-xs uppercase tracking-widest text-zinc-500 mt-2">Freelance Projects</p>
+            </div>
+            <div>
+              <h4 className="text-4xl md:text-5xl font-serif italic text-accent">500+</h4>
+              <p className="text-xs uppercase tracking-widest text-zinc-500 mt-2">Mentees Empowered</p>
+            </div>
+            <div>
+              <h4 className="text-4xl md:text-5xl font-serif italic text-accent">20k+</h4>
+              <p className="text-xs uppercase tracking-widest text-zinc-500 mt-2">StackOverflow Rep</p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -400,6 +470,16 @@ export default function App() {
                 <p className="text-zinc-400 mb-6 leading-relaxed">
                   {project.description}
                 </p>
+                {project.link && (
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-accent text-sm font-bold hover:underline mb-6"
+                  >
+                    View Live <ExternalLink className="w-4 h-4" />
+                  </a>
+                )}
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map(tag => (
                     <span key={tag} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono text-zinc-500">
@@ -514,7 +594,7 @@ export default function App() {
                 <ul className="space-y-4">
                   <li><a href="https://github.com/mzmmohideen" target="_blank" className="text-zinc-400 hover:text-white transition-colors">GitHub</a></li>
                   <li><a href="https://linkedin.com/in/mzmmohideen" target="_blank" className="text-zinc-400 hover:text-white transition-colors">LinkedIn</a></li>
-                  <li><a href="https://stackoverflow.com/users/your-id" target="_blank" className="text-zinc-400 hover:text-white transition-colors">Stack Overflow</a></li>
+                  <li><a href="https://stackoverflow.com/users/4453737/mohammed-mohideen-m-z" target="_blank" className="text-zinc-400 hover:text-white transition-colors">Stack Overflow</a></li>
                 </ul>
               </div>
               <div>
@@ -525,14 +605,10 @@ export default function App() {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-12 border-t border-white/5">
+          <div className="flex flex-col items-center justify-center gap-8 pt-12 border-t border-white/5 text-center">
             <p className="text-xs text-zinc-600 uppercase tracking-widest">
               © 2026 Mohammed Mohideen. All rights reserved.
             </p>
-            <div className="flex items-center gap-8">
-              <a href="#" className="text-xs text-zinc-600 uppercase tracking-widest hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="text-xs text-zinc-600 uppercase tracking-widest hover:text-white transition-colors">Terms of Service</a>
-            </div>
           </div>
         </div>
       </footer>
